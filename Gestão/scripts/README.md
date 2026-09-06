@@ -14,9 +14,11 @@ Pré-requisitos:
 - Python 3.8+ e `requests`
 - Um token GitHub com permissões para o repositório (veja "Gerar token GitHub")
 
-Arquivo principal:
+Arquivos principais:
 
-- `create_and_add_to_project.py` — versão em Python (recomendada)
+- `create_and_add_to_project.py` — versão em Python que cria/atualiza labels, milestones e issues (e tenta adicionar ao Project v2 quando permitido)
+- `create_milestones_from_config.py` — cria/atualiza apenas as milestones a partir de `config.json`
+- `config.json` — parametrização (repoFull, sprints/milestones, labels, issues, fichas)
 
 Gerar token GitHub (Personal Access Token)
 
@@ -36,8 +38,6 @@ Exportar/definir `GITHUB_TOKEN` (exemplos)
 ```powershell
 $env:GITHUB_TOKEN = 'ghp_SEU_TOKEN_AQUI'
 python .\create_and_add_to_project.py
-# ou
-.\create_and_add_to_project.ps1
 ```
 
 - PowerShell (persistente para o usuário):
@@ -51,14 +51,14 @@ python .\create_and_add_to_project.py
 
 ```cmd
 set GITHUB_TOKEN=ghp_SEU_TOKEN_AQUI
-python Gestão\scripts\create_and_add_to_project.py
+python create_and_add_to_project.py
 ```
 
 - Git Bash / WSL / Linux:
 
 ```bash
 export GITHUB_TOKEN='ghp_SEU_TOKEN_AQUI'
-python Gestão/scripts/create_and_add_to_project.py
+python create_and_add_to_project.py
 ```
 
 Instalar dependências Python
@@ -69,28 +69,26 @@ pip install requests
 
 Como executar
 
-- PowerShell (sem gh):
+1) Instale dependências (opcionalmente em virtualenv):
 
-```powershell
-cd Gestão\scripts
-$env:GITHUB_TOKEN = 'ghp_...'
-.\create_github_items_with_token.ps1
+```bash
+pip install requests
 ```
 
-- PowerShell (com GraphQL para Projects v2):
+2) Criar/atualizar milestones (a partir de `config.json`):
 
-```powershell
+```bash
 cd Gestão\scripts
 $env:GITHUB_TOKEN = 'ghp_...'
-.\create_and_add_to_project.ps1 -ProjectOwner 'seu_usuario_ou_org' -ProjectNumber 9
+python create_milestones_from_config.py
 ```
 
-- Python (equivalente, recomendado se preferir Python):
+3) Criar/atualizar labels e issues (com checklists):
 
-```powershell
+```bash
 cd Gestão\scripts
 $env:GITHUB_TOKEN = 'ghp_...'
-python .\create_and_add_to_project.py
+python create_and_add_to_project.py
 ```
 
 Segurança e boas práticas

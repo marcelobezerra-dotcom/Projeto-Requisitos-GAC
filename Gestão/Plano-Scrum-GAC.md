@@ -1,5 +1,9 @@
 # Plano de Estudo e Implementação — GAC (metodologia Scrum)
 
+<p align="center">
+  <img src="../Imagens/logoGacUniforSemFundo.png" alt="GAC Lab" width="240" />
+</p>
+
 Data da apresentação obrigatória: **13/11/2026**
 
 Resumo: plano para o grupo de estudo (3 alunos + coordenador) visando implementar o sistema GAC. As atividades combinam pesquisa sobre biometria digital, RFID, QR code/código de barras, estudo da metodologia SDD e desenvolvimento de protótipos. Gestão por Scrum com quadro Kanban no GitHub.
