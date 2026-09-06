@@ -1,0 +1,45 @@
+{
+  "repoFull": "marcelobezerra-dotcom/Projeto-Requisitos-GAC",
+  "projectOwner": "marcelobezerra-dotcom",
+  "projectNumber": 9,
+  "projectUrl": "https://github.com/users/marcelobezerra-dotcom/projects/9",
+  "milestones": [
+    { "title": "Sprint 1", "due_on": "2026-09-19T23:59:00Z", "description": "Kickoff e pesquisas iniciais" },
+    { "title": "Sprint 2", "due_on": "2026-10-03T23:59:00Z", "description": "PoC individuais" },
+    { "title": "Sprint 3", "due_on": "2026-10-17T23:59:00Z", "description": "Revisão técnica e início do SDD" },
+    { "title": "Sprint 4", "due_on": "2026-10-31T23:59:00Z", "description": "Design detalhado (SDD) e integração" },
+    { "title": "Sprint 5", "due_on": "2026-11-13T23:59:00Z", "description": "Finalização e apresentação" }
+  ],
+  "labels": [
+    { "name": "rfid", "color": "0e8a16", "description": "Tarefas relacionadas a RFID" },
+    { "name": "qrcode", "color": "1d76db", "description": "QR code e código de barras" },
+    { "name": "fingerprint", "color": "5319e7", "description": "Impressão digital" },
+    { "name": "sdd", "color": "0052cc", "description": "Arquitetura e SDD" },
+    { "name": "docs", "color": "b60205", "description": "Documentação" },
+    { "name": "demo", "color": "d4c5f9", "description": "Itens para demo/apresentação" },
+    { "name": "high-priority", "color": "b60205", "description": "Alta prioridade" },
+    { "name": "blocker", "color": "000000", "description": "Bloqueador" }
+  ],
+  "issues": [
+    { "title": "Pesquisa: RFID", "body": "Resumo (1 pág): conceitos, padrões, hardware, APIs e 3 referências.", "labels": ["rfid","docs"], "milestone": "Sprint 1" },
+    { "title": "PoC: RFID (leitura básica)", "body": "Implementar PoC de leitura RFID. Incluir README e screenshots.", "labels": ["rfid","demo"], "milestone": "Sprint 2" },
+    { "title": "Pesquisa: QR code e Código de Barras", "body": "Resumo (1 pág): formatos, bibliotecas, geração e leitura. 3 referências.", "labels": ["qrcode","docs"], "milestone": "Sprint 1" },
+    { "title": "PoC: QR/Barcode (geração e leitura)", "body": "PoC que gera e lê códigos; incluir README.", "labels": ["qrcode","demo"], "milestone": "Sprint 2" },
+    { "title": "Pesquisa: Impressão Digital", "body": "Resumo (1 pág): sensores, algoritmos de matching, privacidade e 3 referências.", "labels": ["fingerprint","docs"], "milestone": "Sprint 1" },
+    { "title": "PoC: Impressão Digital (simulação ou integração)", "body": "PoC de matching ou simulação com dados de exemplo.", "labels": ["fingerprint","demo"], "milestone": "Sprint 2" },
+    { "title": "Estudo SDD e Documento de Visão", "body": "Sessões conjuntas para aplicar SDD; produzir Documento de Visão (rascunho).", "labels": ["sdd","docs"], "milestone": "Sprint 3" },
+    { "title": "Desenho de Arquitetura (SDD)", "body": "Criar diagrama de componentes e especificar APIs.", "labels": ["sdd"], "milestone": "Sprint 4" },
+    { "title": "Integração dos PoC e testes", "body": "Integrar módulos disponíveis; documentar testes manuais.", "labels": ["demo","sdd"], "milestone": "Sprint 4" },
+    { "title": "Preparar apresentação (slides + roteiro)", "body": "Montar slides e roteiro de demo para 13/11.", "labels": ["demo","docs"], "milestone": "Sprint 5" }
+  ]
+  ,
+  "fichas": {
+    "issueTemplate": {
+      "title": "Ficha de Leitura: {titulo}",
+      "body": "Crie/complete a ficha de leitura em Pesquisa/Biblioteca/Fichas/{slug}.md\n\nReferência: {link}\n\nResumo (máx. 200 palavras):\n\nPrincipais ideias / insights:\n\nPontos relevantes para o projeto GAC:\n",
+      "labels": ["docs"],
+      "milestone": "Sprint 1"
+    },
+    "autoCreate": false
+  }
+}
