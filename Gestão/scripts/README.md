@@ -1,75 +1,108 @@
-Script: create_github_items.ps1
+Script: automação de milestones / labels / issues (Python)
 
-O que faz:
+O script principal agora é a versão em Python; os scripts PowerShell foram removidos deste diretório.
+
+O que o script faz:
+
 - Cria milestones (Sprint 1..5)
 - Cria labels úteis para o projeto
 - Cria issues iniciais do backlog e associa às milestones
+- (Opcional) Adiciona issues ao Project Kanban (Projects v2) via GraphQL
 
 Pré-requisitos:
-- PowerShell (Windows)
-- Um token do GitHub com permissões para o repositório (consulte a seção "Gerar token GitHub" abaixo)
--- Permissões de escrita no repositório `marcelobezerra-dotcom/Projeto-Requisitos-GAC`
 
-Como usar:
-1. Abra PowerShell na pasta `Gestão/scripts`.
+- Python 3.8+ e `requests`
+- Um token GitHub com permissões para o repositório (veja "Gerar token GitHub")
 
-2. Para usar sem `gh` (recomendado neste repositório), gere um token GitHub e exporte para a variável `GITHUB_TOKEN` (exemplos abaixo). Em seguida execute:
+Arquivo principal:
 
-```powershell
-cd Gestão\scripts
-./create_github_items_with_token.ps1
-```
-
-3. Alternativa usando `gh` (se preferir):
-
-```powershell
-cd Gestão\scripts
-./create_github_items.ps1
-```
+- `create_and_add_to_project.py` — versão em Python (recomendada)
 
 Gerar token GitHub (Personal Access Token)
-1. Acesse https://github.com e faça login com sua conta.
-2. Abra **Settings** (configurações) -> **Developer settings** -> **Personal access tokens**.
-	- Recomendado: crie um *Fine-grained token* (Tokens de escopo fino) e conceda acesso somente ao repositório `marcelobezerra-dotcom/Projeto-Requisitos-GAC`.
-	- Alternativa: crie um *Token (classic)* e selecione o escopo `repo` (concede acesso aos repositórios). Use com cautela.
-3. Permissões recomendadas para o token (Fine-grained):
-	- Repository permissions: `Contents` = Read & write
-	- Repository permissions: `Issues` = Read & write
-	- Repository permissions: `Pull requests` = Read & write (opcional)
-	- Defina uma data de expiração curta (ex.: 30–90 dias) e crie o token.
-4. Copie o token gerado — ele será mostrado apenas uma vez.
 
-Como armazenar o token no Windows (PowerShell):
-- Temporário (apenas na sessão atual):
+1. Acesse https://github.com e faça login.
+2. Vá em **Settings** → **Developer settings** → **Personal access tokens**.
+3. Recomenda-se criar um *Fine-grained token* com acesso apenas ao repositório deste projeto, ou um *classic* com escopo `repo` se necessário.
+4. Permissões mínimas recomendadas para automação:
+   - `Contents`: Read & write
+   - `Issues`: Read & write
+   - `Pull requests`: Read & write (opcional)
+5. Copie o token (será mostrado apenas uma vez).
+
+Exportar/definir `GITHUB_TOKEN` (exemplos)
+
+- PowerShell (sessão atual):
 
 ```powershell
-$env:GITHUB_TOKEN = 'ghp_xxx...'
+$env:GITHUB_TOKEN = 'ghp_SEU_TOKEN_AQUI'
+python .\create_and_add_to_project.py
+# ou
+.\create_and_add_to_project.ps1
 ```
 
-- Persistente (usuário, requer reiniciar a sessão do PowerShell para aplicar):
+- PowerShell (persistente para o usuário):
 
 ```powershell
-setx GITHUB_TOKEN "ghp_xxx..."
+[Environment]::SetEnvironmentVariable('GITHUB_TOKEN','ghp_SEU_TOKEN_AQUI','User')
+# Reabra o terminal para aplicar
 ```
 
-Segurança:
-- Nunca commit o token em repositórios.
-- Use expiração curta e rotacione o token se houver suspeita de vazamento.
-- Prefira `gh auth login` ou armazenadores de segredos quando possível.
+- CMD (sessão atual):
 
-Observação sobre Project Kanban:
-- O script cria issues no repositório. Para vinculá-las automaticamente ao Project Kanban (Projects v2) pode ser necessário usar a API GraphQL dos Projects v2 e o ID do projeto. Se quiser, eu posso gerar um script extra que adiciona issues ao Project quando você fornecer o Project ID e permissões adequadas.
+```cmd
+set GITHUB_TOKEN=ghp_SEU_TOKEN_AQUI
+python Gestão\scripts\create_and_add_to_project.py
+```
 
----
-Se precisar, eu atualizo o README com instruções específicas para criar um token Fine-grained passo-a-passo com capturas de tela.
+- Git Bash / WSL / Linux:
 
-Script para adicionar issues ao Project Kanban automaticamente:
+```bash
+export GITHUB_TOKEN='ghp_SEU_TOKEN_AQUI'
+python Gestão/scripts/create_and_add_to_project.py
+```
 
-- `create_and_add_to_project.ps1` — cria milestones, labels, issues e adiciona as issues ao Project v2 informado (usa GraphQL). Uso:
+Instalar dependências Python
+
+```bash
+pip install requests
+```
+
+Como executar
+
+- PowerShell (sem gh):
 
 ```powershell
+cd Gestão\scripts
 $env:GITHUB_TOKEN = 'ghp_...'
-./create_and_add_to_project.ps1 -ProjectOwner 'marcelobezerra-dotcom' -ProjectNumber 9
+.\create_github_items_with_token.ps1
 ```
 
-Observação: o `ProjectNumber` é o número exibido na URL do Project (ex.: `/projects/9`).
+- PowerShell (com GraphQL para Projects v2):
+
+```powershell
+cd Gestão\scripts
+$env:GITHUB_TOKEN = 'ghp_...'
+.\create_and_add_to_project.ps1 -ProjectOwner 'seu_usuario_ou_org' -ProjectNumber 9
+```
+
+- Python (equivalente, recomendado se preferir Python):
+
+```powershell
+cd Gestão\scripts
+$env:GITHUB_TOKEN = 'ghp_...'
+python .\create_and_add_to_project.py
+```
+
+Segurança e boas práticas
+
+- Nunca commit o token em repositórios ou compartilhe publicamente.
+- Use expirações curtas e rotacione o token se houver suspeita de vazamento.
+- Prefira *Fine-grained tokens* com acesso limitado ao repositório quando possível.
+
+Project Kanban (Projects v2)
+
+- O script `create_and_add_to_project.*` usa a API GraphQL para adicionar issues ao Projects v2. Para isso você precisa do `projectNumber` (número visível na URL do Project) e permissões adequadas no token.
+
+Precisa de ajuda adicional?
+
+- Posso adicionar um passo-a-passo com capturas de tela para criar o token, ou gerar um `requirements.txt` e um `README` mais detalhado. Quer que eu inclua essas opções?

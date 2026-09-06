@@ -10,6 +10,48 @@
     { "title": "Sprint 4", "due_on": "2026-10-31T23:59:00Z", "description": "Design detalhado (SDD) e integração" },
     { "title": "Sprint 5", "due_on": "2026-11-13T23:59:00Z", "description": "Finalização e apresentação" }
   ],
+  "sprints": [
+    {
+      "number": 1,
+      "title": "Sprint 1",
+      "start_on": "2026-09-06",
+      "end_on": "2026-09-19",
+      "milestone": "Sprint 1",
+      "goals": "Kickoff, levantamento de requisitos iniciais e pesquisas individuais"
+    },
+    {
+      "number": 2,
+      "title": "Sprint 2",
+      "start_on": "2026-09-20",
+      "end_on": "2026-10-03",
+      "milestone": "Sprint 2",
+      "goals": "Implementação de PoCs individuais e documentação"
+    },
+    {
+      "number": 3,
+      "title": "Sprint 3",
+      "start_on": "2026-10-04",
+      "end_on": "2026-10-17",
+      "milestone": "Sprint 3",
+      "goals": "Revisão técnica, início do SDD e integração inicial"
+    },
+    {
+      "number": 4,
+      "title": "Sprint 4",
+      "start_on": "2026-10-18",
+      "end_on": "2026-10-31",
+      "milestone": "Sprint 4",
+      "goals": "Design detalhado (SDD), integração dos PoCs e testes"
+    },
+    {
+      "number": 5,
+      "title": "Sprint 5",
+      "start_on": "2026-11-01",
+      "end_on": "2026-11-13",
+      "milestone": "Sprint 5",
+      "goals": "Finalização, preparação da apresentação e entrega"
+    }
+  ],
   "labels": [
     { "name": "rfid", "color": "0e8a16", "description": "Tarefas relacionadas a RFID" },
     { "name": "qrcode", "color": "1d76db", "description": "QR code e código de barras" },
@@ -21,16 +63,18 @@
     { "name": "blocker", "color": "000000", "description": "Bloqueador" }
   ],
   "issues": [
-    { "title": "Pesquisa: RFID", "body": "Resumo (1 pág): conceitos, padrões, hardware, APIs e 3 referências.", "labels": ["rfid","docs"], "milestone": "Sprint 1" },
+    { "title": "Planejamento do Projeto (cronograma e papéis)", "body": "Planejamento inicial do projeto: definir papéis, cronograma e entregas.", "labels": ["docs"], "milestone": "Sprint 1", "tasks": ["Definir papéis e responsabilidades (PO, Scrum Master, Devs)", "Criar cronograma geral com sprints e marcos","Estimar tarefas do backlog (T-shirt sizing ou pontos)", "Priorizar backlog inicial","Criar Board Kanban/Project v2 e colunas (To do, In progress, Done)", "Agendar reuniões de kickoff e dailies","Definir critérios de aceitação para entregas","Documentar plano em Gestão/Plano-Scrum.md"] },
+    { "title": "Pesquisa: RFID", "body": "Resumo (1 pág): conceitos, padrões, hardware, APIs e 3 referências.\n\nConsulte o [Roteiro de Pesquisa](Pesquisa/Work/Roteiro-Pesquisa.md) para orientações, checklist e entregáveis.", "labels": ["rfid","docs"], "milestone": "Sprint 1" },
     { "title": "PoC: RFID (leitura básica)", "body": "Implementar PoC de leitura RFID. Incluir README e screenshots.", "labels": ["rfid","demo"], "milestone": "Sprint 2" },
-    { "title": "Pesquisa: QR code e Código de Barras", "body": "Resumo (1 pág): formatos, bibliotecas, geração e leitura. 3 referências.", "labels": ["qrcode","docs"], "milestone": "Sprint 1" },
-    { "title": "PoC: QR/Barcode (geração e leitura)", "body": "PoC que gera e lê códigos; incluir README.", "labels": ["qrcode","demo"], "milestone": "Sprint 2" },
-    { "title": "Pesquisa: Impressão Digital", "body": "Resumo (1 pág): sensores, algoritmos de matching, privacidade e 3 referências.", "labels": ["fingerprint","docs"], "milestone": "Sprint 1" },
-    { "title": "PoC: Impressão Digital (simulação ou integração)", "body": "PoC de matching ou simulação com dados de exemplo.", "labels": ["fingerprint","demo"], "milestone": "Sprint 2" },
-    { "title": "Estudo SDD e Documento de Visão", "body": "Sessões conjuntas para aplicar SDD; produzir Documento de Visão (rascunho).", "labels": ["sdd","docs"], "milestone": "Sprint 3" },
-    { "title": "Desenho de Arquitetura (SDD)", "body": "Criar diagrama de componentes e especificar APIs.", "labels": ["sdd"], "milestone": "Sprint 4" },
-    { "title": "Integração dos PoC e testes", "body": "Integrar módulos disponíveis; documentar testes manuais.", "labels": ["demo","sdd"], "milestone": "Sprint 4" },
-    { "title": "Preparar apresentação (slides + roteiro)", "body": "Montar slides e roteiro de demo para 13/11.", "labels": ["demo","docs"], "milestone": "Sprint 5" }
+    { "title": "Pesquisa: QR code e Código de Barras", "body": "Resumo (1 pág): formatos, bibliotecas, geração e leitura. 3 referências.\n\nConsulte o [Roteiro de Pesquisa](Pesquisa/Work/Roteiro-Pesquisa.md) para orientações, checklist e entregáveis.", "labels": ["qrcode","docs"], "milestone": "Sprint 1" , "tasks": ["Pesquisar formatos e padrões (QR, EAN, Code128)", "Testar bibliotecas de leitura (Python/JS)", "Documentar 3 referências e exemplos de uso", "Escrever resumo de 1 página"]},
+    { "title": "PoC: QR/Barcode (geração e leitura)", "body": "PoC que gera e lê códigos; incluir README.", "labels": ["qrcode","demo"], "milestone": "Sprint 2", "tasks": ["Escolher biblioteca para geração e leitura","Implementar geração de código","Implementar leitura a partir de imagem/câmera","Criar README com instruções e exemplos"]},
+    { "title": "Pesquisa: Impressão Digital", "body": "Resumo (1 pág): sensores, algoritmos de matching, privacidade e 3 referências.\n\nConsulte o [Roteiro de Pesquisa](Pesquisa/Work/Roteiro-Pesquisa.md) para orientações, checklist e entregáveis.", "labels": ["fingerprint","docs"], "milestone": "Sprint 1", "tasks": ["Levantar sensores comerciais e custos","Pesquisar algoritmos de matching e bibliotecas","Analisar questões de privacidade e tratamento de dados","Escrever resumo com 3 referências"] },
+    { "title": "PoC: Impressão Digital (simulação ou integração)", "body": "PoC de matching ou simulação com dados de exemplo.", "labels": ["fingerprint","demo"], "milestone": "Sprint 2", "tasks": ["Criar dataset de teste (simulado)", "Implementar fluxo de captura e matching (simulado)", "Documentar limitações e resultados"] },
+    { "title": "Estudo SDD e Documento de Visão", "body": "Sessões conjuntas para aplicar SDD; produzir Documento de Visão (rascunho).", "labels": ["sdd","docs"], "milestone": "Sprint 3", "tasks": ["Agendar sessão de arquitetura com a equipe","Definir limites do sistema e atores","Esboçar principais requisitos não funcionais","Gerar rascunho do Documento de Visão"] },
+    
+    { "title": "Desenho de Arquitetura (SDD)", "body": "Criar diagrama de componentes e especificar APIs.", "labels": ["sdd"], "milestone": "Sprint 4", "tasks": ["Desenhar diagrama de alto nível de componentes","Definir contratos de API entre módulos","Especificar pontos de integração e dados de entrada/saída","Revisar com a equipe e ajustar"] },
+    { "title": "Integração dos PoC e testes", "body": "Integrar módulos disponíveis; documentar testes manuais.", "labels": ["demo","sdd"], "milestone": "Sprint 4", "tasks": ["Listar componentes PoC disponíveis","Implementar integração entre PoCs","Desenvolver checklist de testes manuais","Registrar resultados e issues encontradas"] },
+    { "title": "Preparar apresentação (slides + roteiro)", "body": "Montar slides e roteiro de demo para 13/11.", "labels": ["demo","docs"], "milestone": "Sprint 5", "tasks": ["Preparar slides principais (problema, solução, demo)", "Gravar ensaio ou ensaiar roteiro em equipe","Recolher screenshots e vídeos dos PoCs","Finalizar roteiro e distribuir responsabilidades"] }
   ]
   ,
   "fichas": {
