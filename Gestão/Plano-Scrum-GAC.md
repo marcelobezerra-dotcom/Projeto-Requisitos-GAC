@@ -6,11 +6,11 @@
 
 Data da apresentação obrigatória: **13/11/2026**
 
-Resumo: plano para o grupo de estudo (3 alunos + coordenador) visando implementar o sistema GAC. As atividades combinam pesquisa sobre biometria digital, RFID, QR code/código de barras, estudo da metodologia SDD e desenvolvimento de protótipos. Gestão por Scrum com quadro Kanban no GitHub.
+Resumo: plano para o grupo de estudo (3 alunos + coordenador) visando implementar o sistema GAC. As atividades combinam pesquisa sobre biometria digital, NFC, QR code/código de barras, estudo da metodologia SDD e desenvolvimento de protótipos. Gestão por Scrum com quadro Kanban no GitHub.
 
 **Objetivos**
 - Entregar resultado demonstrável em 13/11/2026 (slides + demo + resumo SDD).
-- Estudar e documentar: RFID; QR code + Código de Barras; Impressão Digital.
+- Estudar e documentar: NFC; QR code + Código de Barras; Impressão Digital.
 - Aplicar SDD para definir arquitetura e requisitos do sistema GAC.
 - Produzir protótipos integráveis e demonstração reproducível.
 
@@ -29,17 +29,17 @@ Resumo: plano para o grupo de estudo (3 alunos + coordenador) visando implementa
 Observação: ajustar datas conforme disponibilidade do grupo; Sprint 5 é de 13 dias para alinhar com a data da apresentação.
 
 **Backlog inicial (épicos / itens)**
-- Pesquisa e documentação: RFID (epic)
+ - Pesquisa e documentação: NFC (epic)
 - Pesquisa e documentação: QR code + Código de Barras (epic)
 - Pesquisa e documentação: Impressão Digital (epic)
 - Estudo e aplicação: SDD (visão, requisitos, arquitetura)
-- Protótipos: PoC RFID, PoC QR/Barcode, PoC Fingerprint
+- Protótipos: PoC NFC, PoC QR/Barcode, PoC Fingerprint
 - Integração: APIs e fluxo de empréstimo/devolução
 - Documentação: Documento SDD resumido + relatório curto
 - Material de apresentação: Slides + roteiro de demo
 
 **Divisão de atividades por pessoa**
-- **Aluno A (RFID)**: levantamento de hardware/soft, PoC leitura RFID, documento resumo, slides e demo.
+- **Aluno A (NFC)**: levantamento de hardware/soft, PoC leitura NFC, documento resumo, slides e demo.
 - **Aluno B (QR + Código de Barras)**: gerar/ler QR e barcode, integração com processo, PoC, resumo e slides.
 - **Aluno C (Impressão Digital)**: estudo de sensores e matching (pode usar simulação), PoC, resumo e slides.
 - **Coordenador (PO)**: revisar entregas, validar SDD, preparar introdução e seção de conclusão nos slides.
@@ -59,7 +59,7 @@ Observação: ajustar datas conforme disponibilidade do grupo; Sprint 5 é de 13
 **Kanban no GitHub (estrutura recomendada)**
 - Crie um Project Board (Kanban) com colunas: `Backlog`, `To do`, `In progress`, `In review`, `Blocked`, `Done`.
 - Use Issues para cada item do backlog; vincule PRs e commits às issues.
-- Labels sugeridos: `rfid`, `qrcode`, `fingerprint`, `sdd`, `docs`, `blocker`, `high-priority`, `demo`.
+- Labels sugeridos: `nfc`, `qrcode`, `fingerprint`, `sdd`, `docs`, `blocker`, `high-priority`, `demo`.
 
 **Templates e artefatos a criar (sugestão)**
 - Template de Issue: título, descrição, critério de aceite, estimativa (horas), responsável.

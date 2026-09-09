@@ -224,7 +224,7 @@ def main():
     ]
 
     labels = cfg.get('labels') or [
-        {'name': 'rfid', 'color': '0e8a16', 'description': 'Tarefas relacionadas a RFID'},
+        {'name': 'nfc', 'color': '0e8a16', 'description': 'Tarefas relacionadas a NFC'},
         {'name': 'qrcode', 'color': '1d76db', 'description': 'QR code e código de barras'},
         {'name': 'fingerprint', 'color': '5319e7', 'description': 'Impressão digital'},
         {'name': 'sdd', 'color': '0052cc', 'description': 'Arquitetura e SDD'},
@@ -235,8 +235,8 @@ def main():
     ]
 
     issues = cfg.get('issues') or [
-        {'title': 'Pesquisa: RFID', 'body': 'Resumo (1 pág): conceitos, padrões, hardware, APIs e 3 referências.', 'labels': ['rfid', 'docs'], 'milestone': 'Sprint 1'},
-        {'title': 'PoC: RFID (leitura básica)', 'body': 'Implementar PoC de leitura RFID. Incluir README e screenshots.', 'labels': ['rfid', 'demo'], 'milestone': 'Sprint 2'},
+        {'title': 'Pesquisa: NFC', 'body': 'Resumo (1 pág): conceitos, padrões, hardware, APIs e 3 referências.', 'labels': ['nfc', 'docs'], 'milestone': 'Sprint 1'},
+        {'title': 'PoC: NFC (leitura básica)', 'body': 'Implementar PoC de leitura NFC. Incluir README e screenshots.', 'labels': ['nfc', 'demo'], 'milestone': 'Sprint 2'},
         {'title': 'Pesquisa: QR code e Código de Barras', 'body': 'Resumo (1 pág): formatos, bibliotecas, geração e leitura. 3 referências.', 'labels': ['qrcode', 'docs'], 'milestone': 'Sprint 1'},
         {'title': 'PoC: QR/Barcode (geração e leitura)', 'body': 'PoC que gera e lê códigos; incluir README.', 'labels': ['qrcode', 'demo'], 'milestone': 'Sprint 2'},
         {'title': 'Pesquisa: Impressão Digital', 'body': 'Resumo (1 pág): sensores, algoritmos de matching, privacidade e 3 referências.', 'labels': ['fingerprint', 'docs'], 'milestone': 'Sprint 1'},

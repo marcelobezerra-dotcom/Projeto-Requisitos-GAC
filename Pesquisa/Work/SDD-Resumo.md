@@ -6,7 +6,7 @@ Breve descrição da arquitetura proposta (camadas, responsabilidades, visão ge
 ## 2. Componentes Principais
 - Frontend: tecnologia e responsabilidades
 - Backend: serviços, APIs, autenticação
-- Integrações: RFID, QR/Barcode, Impressão Digital, serviço de IA
+- Integrações: NFC, QR/Barcode, Impressão Digital, serviço de IA
 - Persistência: banco de dados/formatos
 
 ## 3. Diagramas (referência)

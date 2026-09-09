@@ -1,6 +1,6 @@
 # Roteiro prático para pesquisas tecnológicas — Grupo GAC
 
-Objetivo: orientar os alunos na pesquisa técnica (RFID, QR/Barcode, Impressão Digital) e produção de um PoC e resumo de 1 página. Siga os passos abaixo e preencha o `POC-README-template.md` e o `Documento-Visao.md` conforme solicitado.
+Objetivo: orientar os alunos na pesquisa técnica (NFC, QR/Barcode, Impressão Digital) e produção de um PoC e resumo de 1 página. Siga os passos abaixo e preencha o `POC-README-template.md` e o `Documento-Visao.md` conforme solicitado.
 
 1) Preparação (2–4 horas)
 - Leia o objetivo do projeto no `Pesquisa/Work/Documento-Visao.md`.
@@ -21,7 +21,7 @@ Objetivo: orientar os alunos na pesquisa técnica (RFID, QR/Barcode, Impressão 
 
 - Passo B — Experimentos rápidos (4–12h):
   - Instalar bibliotecas e rodar exemplos oficiais.
-  - Implementar um mini-experimento que demonstre a função essencial (ex.: leitura de uma tag RFID; geração e leitura de um QR; matching básico de impressão digital usando um dataset aberto).
+  - Implementar um mini-experimento que demonstre a função essencial (ex.: leitura de uma tag NFC; geração e leitura de um QR; matching básico de impressão digital usando um dataset aberto).
 
 - Passo C — Documentação e entrega (2–4h):
   - Preencher `POC-README.md` com passos de instalação e execução.
@@ -29,7 +29,7 @@ Objetivo: orientar os alunos na pesquisa técnica (RFID, QR/Barcode, Impressão 
   - Subir alterações no repositório (branch `poC/<tecnologia>-<nome>`) e abrir PR apontando para a issue.
 
 4) Critérios técnicos e dicas por tecnologia
-- RFID
+- NFC
   - Foque em: tipos de tags (LF/HF/UHF), padrões (ISO 14443, EPC), alcance, APIs (e.g., libnfc, pymfrc522), leitura anti-colisão.
   - PoC sugerido: ler uma tag usando um leitor USB (ou simular leitura com arquivo JSON se não houver hardware).
   - Atenção a: formatos de UID, permissões de driver e segurança física.
@@ -44,7 +44,7 @@ Objetivo: orientar os alunos na pesquisa técnica (RFID, QR/Barcode, Impressão 
   - Atenção a: privacidade — não use dados reais sem consentimento; prefira datasets públicos ou simulações.
 
 5) Conectar pesquisa com SDD
-- Para cada experimento, registre ao menos 3 requisitos (user stories) que surgem a partir do PoC — ex.: "Como operador, quero ler a tag RFID para identificar o projetor".
+- Para cada experimento, registre ao menos 3 requisitos (user stories) que surgem a partir do PoC — ex.: "Como operador, quero ler a tag NFC para identificar o projetor".
 - Anote dependências de integração (APIs, formatos de dados, latência, falhas esperadas).
 
 6) Formato do resumo (modelo rápido)
@@ -65,7 +65,7 @@ Objetivo: orientar os alunos na pesquisa técnica (RFID, QR/Barcode, Impressão 
 - O coordenador/PO fará revisão técnica do PoC e do resumo; cada aluno deverá receber feedback escrito em até 5 dias.
 
 9) Recursos úteis (links e bibliotecas)
-- RFID: libnfc (C), pymfrc522 (Python), Adafruit PN532 libraries
+- NFC: libnfc (C), pymfrc522 (Python), Adafruit PN532 libraries
 - QR/Barcode: zxing, pyzbar, qrcode (Python), bwip-js
 - Impressão Digital: Neurotechnology (comercial), SourceAFIS (open-source), datasets FVC
 

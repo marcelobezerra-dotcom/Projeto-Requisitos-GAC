@@ -106,7 +106,7 @@ Diagramas detalhados e propostas estão disponíveis em `Requisitos/` e `Prototi
 
 ## 12. Cronograma Resumido
 
-- Sprint 1: pesquisas e PoCs iniciais (biometria, leitura de código de barras, RFID) — entrega: resumos e PoC mínimo.
+- Sprint 1: pesquisas e PoCs iniciais (biometria, leitura de código de barras, NFC) — entrega: resumos e PoC mínimo.
 - Sprint 2: PoCs funcionais e README dos PoCs — entrega: repositório com execução mínima e screenshots.
 - Sprint 3: Início do SDD e Documento de Visão finalizado.
 - Sprint 4: Design detalhado e integração inicial.

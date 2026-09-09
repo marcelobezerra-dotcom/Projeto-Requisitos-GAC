@@ -10,7 +10,7 @@ Descrever o objetivo do PoC (o que demonstra/valida).
 
 ## Pré-requisitos
 - Software: Node/Python/Java etc.
-- Drivers ou permissões para hardware (ex.: leitor RFID)
+- Drivers ou permissões para hardware (ex.: leitor NFC)
 
 ## Instalação
 Passos para instalar dependências e preparar o ambiente:
@@ -37,7 +37,7 @@ python poc.py
 - Exemplo de entrada e saída esperada
 
 ## Resultados esperados
-- O que o PoC deve demonstrar (ex.: leitura de tag RFID, geração de QR code, matching simulado)
+- O que o PoC deve demonstrar (ex.: leitura de tag NFC, geração de QR code, matching simulado)
 
 ## Limitações conhecidas
 - Limitações do PoC (hardware, segurança, dados de teste)
@@ -50,4 +50,4 @@ python poc.py
 - Links e papers
 
 ---
-*Preencha este template para cada PoC (RFID, QR/Barcode, Impressão Digital).* 
+*Preencha este template para cada PoC (NFC, QR/Barcode, Impressão Digital).* 
