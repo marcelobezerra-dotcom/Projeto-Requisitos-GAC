@@ -1,0 +1,7 @@
+imagem,tipo_esperado,biblioteca,tipo_detectado,conteudo,tempo_ms,sucesso
+qrcode_exemplo.png,QR_CODE,zxing-cpp,QR Code,https://github.com/marcelobezerra-dotcom/Projeto-Requisitos-GAC,1.43,True
+qrcode_exemplo.png,QR_CODE,opencv,QR_CODE,https://github.com/marcelobezerra-dotcom/Projeto-Requisitos-GAC,15.58,True
+ean13_exemplo.png,EAN_13,zxing-cpp,EAN-13,5901234123457,2.42,True
+ean13_exemplo.png,EAN_13,opencv,N/A,(não decodificado),27.22,False
+code128_exemplo.png,CODE_128,zxing-cpp,Code 128,GAC-2026/projeto-requisitos,4.25,True
+code128_exemplo.png,CODE_128,opencv,N/A,(não decodificado),98.28,False
