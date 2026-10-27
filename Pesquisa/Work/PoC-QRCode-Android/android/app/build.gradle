@@ -1,0 +1,83 @@
+plugins {
+    id 'com.android.application'
+}
+
+// Credenciais de assinatura. O arquivo keystore.properties e o .jks nao vao para
+// o controle de versao: sem eles o build release cai para a assinatura de debug.
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+if (keystorePropertiesFile.exists()) {
+    keystorePropertiesFile.withInputStream { keystoreProperties.load(it) }
+}
+
+android {
+    namespace 'com.example.qrcodeapp'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.qrcodeapp"
+        minSdk 21
+        targetSdk 34
+        versionCode 3
+        versionName "1.2"
+    }
+
+    signingConfigs {
+        release {
+            if (keystoreProperties['storeFile']) {
+                storeFile rootProject.file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            // R8 fica desligado de proposito: o zxing-android-embedded acessa
+            // classes por reflexao e nao ha regras de keep escritas.
+            minifyEnabled false
+            signingConfig keystoreProperties['storeFile']
+                    ? signingConfigs.release
+                    : signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
+
+    // ZXing: geração e leitura de QR Code
+    implementation 'com.google.zxing:core:3.5.3'
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+
+    // Orientação EXIF: foto de celular quase sempre vem gravada deitada, e sem
+    // aplicar a rotação a leitura da imagem falha mesmo com o QR no enquadramento.
+    implementation 'androidx.exifinterface:exifinterface:1.3.7'
+
+    // Servidor HTTP embarcado: expõe /health, /v1/qr/read e /v1/audit/logs na porta
+    // 8787, que é o que o test-api.ps1 do professor consome.
+    implementation 'org.nanohttpd:nanohttpd:2.3.1'
+
+    testImplementation 'junit:junit:4.13.2'
+    // org.json de verdade: o android.jar dos testes unitários só tem stub.
+    testImplementation 'org.json:json:20231013'
+    testImplementation 'androidx.test:core:1.5.0'
+    testImplementation 'org.robolectric:robolectric:4.13'
+}

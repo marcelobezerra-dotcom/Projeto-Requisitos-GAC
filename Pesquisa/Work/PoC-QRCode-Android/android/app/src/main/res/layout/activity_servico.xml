@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/txtStatusServico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="12dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtEnderecoServico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp" />
+
+        <!-- EditText puro em vez de TextInputLayout: os componentes Material
+             exigem Theme.MaterialComponents e o app usa tema AppCompat. O hint
+             nativo dá o mesmo resultado visual sem depender do tema. -->
+        <EditText
+            android:id="@+id/campoPorta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/servico_hint_porta"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="5" />
+
+        <EditText
+            android:id="@+id/campoToken"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/servico_hint_token"
+            android:importantForAutofill="no"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/btnCopiarToken"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_copiar_token" />
+
+        <!-- Button comum, e não MaterialButton: o app usa tema AppCompat e o
+             MaterialButton exige Theme.MaterialComponents. Trocar o tema inteiro
+             mudaria a aparência de todas as telas já prontas. -->
+        <Button
+            android:id="@+id/btnIniciarServico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/btn_iniciar_servico" />
+
+        <Button
+            android:id="@+id/btnLerQrServico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/servico_btn_ler_qr" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:paddingBottom="4dp"
+            android:text="@string/servico_titulo_comando"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtExemploPowershell"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EEEEEE"
+            android:fontFamily="monospace"
+            android:padding="8dp"
+            android:textIsSelectable="true" />
+    </LinearLayout>
+</ScrollView>

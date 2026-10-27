@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aluguel de Projetores</string>
+
+    <!-- Ações -->
+    <string name="acao_cadastrar">Cadastrar</string>
+    <string name="acao_cancelar">Cancelar</string>
+    <string name="acao_voltar_para_lista">Voltar para a lista</string>
+    <string name="acao_tentar_novamente">Tentar novamente</string>
+    <string name="acao_abrir_configuracoes">Abrir configurações</string>
+
+    <!-- Cadastro de projetor -->
+    <string name="titulo_cadastrar_projetor">Cadastrar novo projetor</string>
+    <string name="hint_numero_projetor">Número ou código do projetor (ex: 4)</string>
+    <string name="erro_numero_obrigatorio">Digite o número do projetor</string>
+    <string name="erro_numero_invalido">Use apenas letras, números, ponto, hífen ou underscore</string>
+    <string name="erro_numero_duplicado">Já existe um projetor com esse número</string>
+    <string name="msg_projetor_cadastrado">Projetor %1$s cadastrado</string>
+
+    <!-- Detalhe do projetor -->
+    <string name="status_disponivel">Disponível</string>
+    <string name="status_alugado">Alugado</string>
+    <string name="status_nao_cadastrado">Não cadastrado</string>
+    <string name="titulo_projetor_nao_cadastrado">Projetor \"%1$s\" não está cadastrado</string>
+    <string name="msg_projetor_nao_cadastrado">Deseja cadastrar este projetor agora?</string>
+    <string name="desc_qr_projetor">QR Code do projetor %1$s</string>
+    <string name="desc_qr_generico">QR Code do projetor</string>
+    <string name="item_projetor_numero">Projetor %1$s</string>
+    <string name="item_projetor_com_quem">Com: %1$s</string>
+    <string name="item_projetor_pronto">Pronto para alugar</string>
+    <string name="item_locatario_vazio">—</string>
+    <string name="erro_gerar_qr">Erro ao gerar QR Code: %1$s</string>
+
+    <!-- Aluguel e devolução -->
+    <string name="erro_nome_obrigatorio">Informe o nome do locatário</string>
+    <string name="msg_falha_salvar">Não foi possível salvar. Recarregue o projetor e tente de novo.</string>
+    <string name="msg_aluguel_registrado">Aluguel registrado</string>
+    <string name="msg_devolucao_registrada">Devolução registrada</string>
+
+    <!-- Leitura de QR Code -->
+    <string name="msg_leitura_cancelada">Leitura cancelada</string>
+    <string name="msg_qr_sem_numero">QR Code inválido: falta o número do projetor</string>
+    <string name="msg_qr_nao_reconhecido">Este QR Code não é de um projetor:\n%1$s</string>
+    <string name="msg_camera_obrigatoria">Permissão de câmera é necessária para ler QR Codes</string>
+    <string name="titulo_camera_bloqueada">Câmera bloqueada</string>
+    <string name="msg_camera_negada_explicacao">O app precisa da câmera para ler o QR Code colado no projetor. Quer tentar novamente?</string>
+    <string name="msg_camera_bloqueada">A permissão de câmera foi negada em definitivo. Ative-a nas configurações do app para poder ler QR Codes.</string>
+    <string name="btn_ler_qr_camera">📷 Ler QR Code de um projetor</string>
+    <string name="btn_ler_qr_imagem">🖼️ Ler QR Code de uma imagem</string>
+    <string name="msg_qr_imagem_analisando">Lendo a imagem…</string>
+    <string name="msg_qr_imagem_sem_qr">Nenhum QR Code foi encontrado nesta imagem</string>
+    <string name="msg_qr_imagem_erro">Não foi possível ler a imagem: %1$s</string>
+
+    <!-- Serviço HTTP (test-api.ps1 do professor) -->
+    <string name="servico_canal_nome">Serviço de QR Code</string>
+    <string name="servico_canal_descricao">Mantém a porta aberta para o teste da API</string>
+    <string name="servico_notificacao_titulo">Serviço de QR Code ativo</string>
+    <string name="servico_notificacao_ativa">Escutando na porta %1$d</string>
+    <string name="servico_notificacao_falha">Não foi possível abrir a porta %1$d</string>
+    <string name="servico_status_ativo">Ativo, escutando na porta %1$d</string>
+    <string name="servico_status_inativo">Parado</string>
+    <string name="servico_status_falha">Não subiu: %1$s</string>
+    <string name="servico_erro_sem_permissao">o Android bloqueou o serviço em primeiro plano. Libere a notificação do app nas configurações e tente de novo.</string>
+    <string name="servico_status_aguardando_qr">Chegou um pedido de leitura. Aponte a câmera…</string>
+    <string name="servico_endereco">Endereço: http://%1$s:%2$d/health</string>
+    <string name="servico_hint_porta">Porta</string>
+    <string name="servico_hint_token">Token (Bearer)</string>
+    <string name="servico_token">Token do serviço</string>
+    <string name="servico_titulo_comando">Comando de teste no PC</string>
+    <string name="servico_btn_ler_qr">📷 Ler QR Code agora</string>
+    <string name="servico_prompt_camera">Aponte a câmera para o QR Code do projetor</string>
+    <string name="servico_leitura_recebida">Leitura recebida: %1$s</string>
+    <string name="servico_leitura_cancelada">Leitura cancelada</string>
+    <string name="servico_token_copiado">Token copiado</string>
+    <string name="servico_porta_invalida">Use uma porta entre 1024 e 65535</string>
+    <string name="btn_iniciar_servico">▶ Iniciar serviço</string>
+    <string name="btn_parar_servico">⏹ Parar serviço</string>
+    <string name="btn_copiar_token">Copiar token</string>
+    <string name="servico_notificacao_sem_permissao">Sem a permissão de notificação o serviço funciona igual, mas some a notificação que segura a porta aberta.</string>
+    <string name="btn_servico">🔌 Serviço da API</string>
+</resources>

@@ -1,0 +1,19 @@
+# Segredos: nunca versionar
+keystore.properties
+*.jks
+*.keystore
+
+# Gradle
+.gradle/
+build/
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Assinatura debug do Android Studio
+debug.keystore

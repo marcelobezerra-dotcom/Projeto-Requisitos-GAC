@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+    <!-- O serviço abre uma porta TCP para o test-api.ps1 do professor falar com
+         o app. INTERNET é exigida pelo Android para qualquer socket, inclusive
+         apenas escutar. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- A partir do Android 8 o processo em background é morto em minutos. Sem
+         foreground service a porta 8787 fecha sozinha e o script falha com
+         "não foi possível conectar ao celular" sem nenhum pedido ter chegado. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+
+    <!-- A partir do Android 13 a notificação do serviço precisa de permissão em
+         runtime. Negada, o serviço segue funcionando (a porta fica aberta) e só
+         a notificação persistente deixa de aparecer. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Os dados de locatário (nome e telefone) não podem ir para backup nem
+         para transferência de dispositivo: allowBackup=false para o Android 11
+         e abaixo, dataExtractionRules para o 12+. -->
+    <application
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:label="@string/app_name"
+        android:icon="@android:drawable/ic_menu_camera"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+        android:supportsRtl="true">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".DetalheProjetorActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".ServicoActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+        <!-- foregroundServiceType é obrigatório a partir do Android 14: sem ele
+             o startForeground lança SecurityException mesmo tendo a permissão. -->
+        <service
+            android:name=".ServicoQrCode"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+
+        <!-- Activity de captura fornecida pela biblioteca zxing-android-embedded.
+             A lib já declara screenOrientation="sensorLandscape"; o tools:replace é
+             obrigatório para declarar "fullSensor" aqui, senão o merger falha. -->
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="fullSensor"
+            android:exported="false"
+            tools:replace="android:screenOrientation" />
+
+    </application>
+
+</manifest>
