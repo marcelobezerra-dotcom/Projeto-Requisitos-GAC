@@ -264,7 +264,7 @@ mas o app não o trata como projetor.
   cadastro acidental.
 - O serviço abre a porta configurada, exige Bearer token e devolve JSON.
 - `POST /v1/qr/read` devolve `200` com o patrimônio lido, ou `408` se ninguém
-  atender a câmera em aproximadamente 30 s.
+  atender a câmera em 35 s (`FilaLeituraQr.TIMEOUT_MS`).
 - A leitura de hostilidade básica funciona: sem token → `401`; token errado →
   `403`; rota inexistente → `404`.
 
